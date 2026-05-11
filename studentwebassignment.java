@@ -85,3 +85,4 @@ public class studentwebassignment {
 }  // moduleinfo dlete karo
 //remove the file folder module-info.java
 //properties->libraries->modulepath->Add library any >11
+//http://localhost:8005/student?name=Viraj&roll=101&marks=85
