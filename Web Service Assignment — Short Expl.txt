@@ -1,0 +1,176 @@
+Web Service Assignment — Short Explanation
+Aim
+
+To create a simple Web Service using Java HTTP Server and consume it through browser URL requests.
+
+What This Program Does
+Creates a web server on port:
+8006
+Accepts student details from URL:
+Name
+Roll Number
+Marks
+Checks:
+PASS if marks ≥ 40
+FAIL otherwise
+Sends response back to browser.
+How Code Works
+1. Create HTTP Server
+HttpServer server = HttpServer.create(new InetSocketAddress(8006), 0);
+
+Creates local web server on:
+
+localhost:8006
+2. Create Endpoint
+server.createContext("/student", new StudentHandler());
+
+Creates URL endpoint:
+
+/student
+
+Full URL becomes:
+
+http://localhost:8006/student
+3. Start Server
+server.start();
+
+Starts web service.
+
+Output:
+
+Server running at http://localhost:8006/student
+4. Handle Browser Request
+
+Class:
+
+StudentHandler
+
+handles incoming requests.
+
+5. Read URL Parameters
+
+Example URL:
+
+http://localhost:8006/student?name=Viraj&roll=101&marks=85
+
+Query string:
+
+name=Viraj&roll=101&marks=85
+
+Program extracts:
+
+Parameter	Value
+name	Viraj
+roll	101
+marks	85
+6. Check PASS or FAIL
+
+Code:
+
+if (marks >= 40)
+
+If marks ≥ 40:
+
+PASS
+
+Else:
+
+FAIL
+7. Generate Response
+
+Program creates response:
+
+Student Name : Viraj
+Roll Number : 101
+Marks : 85
+Result : PASS
+8. Send Response to Browser
+exchange.sendResponseHeaders()
+
+sends data to browser.
+
+Input
+
+Browser URL:
+
+http://localhost:8006/student?name=Viraj&roll=101&marks=85
+Output
+
+Browser displays:
+
+Student Name : Viraj
+Roll Number : 101
+Marks : 85
+Result : PASS
+How to Run Practical
+Step 1
+
+Create Java Project in Eclipse.
+
+Delete:
+
+module-info.java
+Step 2
+
+Create package:
+
+studentwebassignment
+Step 3
+
+Create class:
+
+studentwebassignment.java
+
+Paste code.
+
+Step 4
+
+Use Java 8 or Java 11+.
+
+Step 5
+
+Run:
+
+Run As → Java Application
+
+Console output:
+
+Server running at http://localhost:8006/student
+Step 6
+
+Open browser.
+
+Run:
+
+http://localhost:8006/student?name=Viraj&roll=101&marks=85
+Expected Browser Output
+Student Name : Viraj
+Roll Number : 101
+Marks : 85
+Result : PASS
+Important Viva Questions
+What is Web Service?
+
+A web service allows communication between applications over HTTP.
+
+What is localhost?
+localhost
+
+means local computer/server.
+
+What is Port 8006?
+
+Communication endpoint for server.
+
+What is Query Parameter?
+
+Data passed in URL.
+
+Example:
+
+name=Viraj
+Simple Viva Explanation
+
+You can say:
+
+“This program creates a simple Java web service using HttpServer. The server accepts student details through URL parameters, processes the data, checks pass/fail condition, and sends the response back to the browser.”
